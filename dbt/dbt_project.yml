@@ -1,0 +1,10 @@
+name: ecommerce
+version: "1.0"
+profile: ecommerce
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+models:
+  ecommerce:
+    refined:  { +schema: refined,  +materialized: table }
+    reported: { +schema: reported, +materialized: table }

@@ -1,0 +1,8 @@
+version: 2
+models:
+  - name: reported_sales
+    columns:
+      - name: order_id
+        tests: [not_null, unique]
+      - name: total_amount
+        tests: [not_null]
