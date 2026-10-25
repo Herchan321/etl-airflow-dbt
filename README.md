@@ -1,5 +1,7 @@
 # Pipeline ELT e-commerce : Airflow, dbt, DuckDB
 
+![CI](https://github.com/Herchan321/etl-airflow-dbt/actions/workflows/ci.yml/badge.svg)
+
 Pipeline de données de bout en bout : ingestion d'une API, transformation en
 couches avec tests de qualité, génération d'un rapport, le tout orchestré
 et testé automatiquement.
