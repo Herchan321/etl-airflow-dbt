@@ -110,8 +110,3 @@ Tests locaux : `pip install pytest pandas duckdb requests` puis `pytest -q`
 - **CI sans déploiement** : la CI vérifie le code, le DAG, le build dbt sur une mini base
   et le build de l'image. Il n'y a pas de livraison continue vers un serveur.
 
-## Pistes d'amélioration
-
-- Rapport avec graphiques, `dbt docs` pour le lineage.
-- Marts agrégés dans dbt plutôt que dans le script de rapport.
-- Passage à un entrepôt multi-utilisateurs (Postgres, MotherDuck) pour la concurrence.
