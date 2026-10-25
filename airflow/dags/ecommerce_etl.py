@@ -1,10 +1,11 @@
 from datetime import datetime, timedelta
 
-from airflow.sdk import DAG
 from airflow.providers.standard.operators.bash import BashOperator
 from airflow.providers.standard.operators.python import PythonOperator
-from reporting.build_report import build_report
+from airflow.sdk import DAG
 from include.ingest_orders import run as ingest_run
+
+from reporting.build_report import build_report
 
 with DAG(
     "ecommerce_etl",

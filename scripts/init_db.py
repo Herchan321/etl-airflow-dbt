@@ -1,5 +1,6 @@
-import duckdb
 import logging
+
+import duckdb
 
 # =========================
 # 1. Configure logging

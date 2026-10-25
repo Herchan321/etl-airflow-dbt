@@ -1,10 +1,10 @@
-import os
 import logging
+import os
 from io import StringIO
 
-import requests
 import duckdb
 import pandas as pd
+import requests
 
 logger = logging.getLogger(__name__)
 

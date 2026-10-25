@@ -1,4 +1,5 @@
 import sys
+
 import duckdb
 
 con = duckdb.connect(sys.argv[1], read_only=True)

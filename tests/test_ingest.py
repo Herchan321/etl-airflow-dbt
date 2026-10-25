@@ -2,9 +2,7 @@ import duckdb
 import pandas as pd
 import pytest
 import requests
-
-from include import ingest_orders
-from include.ingest_orders import to_dataframe, load_raw, extract_from_api
+from include.ingest_orders import extract_from_api, load_raw, to_dataframe
 
 
 def test_to_dataframe_ok():

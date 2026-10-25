@@ -1,5 +1,6 @@
 import os
 from datetime import datetime
+
 import duckdb
 
 DB_PATH = os.getenv("DUCKDB_PATH", "/opt/airflow/data/ecommerce.duckdb")

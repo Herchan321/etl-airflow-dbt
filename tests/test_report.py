@@ -1,4 +1,5 @@
 import duckdb
+
 from reporting.build_report import build_report
 
 
