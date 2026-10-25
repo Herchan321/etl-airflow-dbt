@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  python-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install ruff pytest pandas requests duckdb==1.5.6
+      - run: ruff check .
+      - run: pytest -q
+
+  dag-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: >
+          pip install "apache-airflow==3.3.2" apache-airflow-providers-standard
+          pandas requests duckdb==1.5.6 pytest
+      - run: pytest tests/test_dag.py -q
+
+  dbt:
+    runs-on: ubuntu-latest
+    env:
+      DUCKDB_PATH: ${{ github.workspace }}/ci.duckdb
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install dbt-duckdb duckdb==1.5.6
+      - run: python scripts/make_ci_db.py
+      - run: dbt build --profiles-dir .
+        working-directory: dbt
+
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build ./airflow
